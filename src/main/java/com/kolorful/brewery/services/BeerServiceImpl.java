@@ -5,6 +5,7 @@ import java.util.UUID;
 import org.springframework.stereotype.Service;
 
 import com.kolorful.brewery.web.model.BeerDto;
+import com.kolorful.brewery.web.model.BeerStyleEnum;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -17,7 +18,7 @@ public class BeerServiceImpl implements BeerService {
 		
 		return BeerDto.builder().id(UUID.randomUUID())
 				.beerName("Hawards 5000")
-				.beerStyle("Country")
+				.beerStyle(BeerStyleEnum.LAGER)
 				.build();
 		
 	}

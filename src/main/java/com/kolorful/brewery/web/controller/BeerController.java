@@ -29,14 +29,14 @@ public class BeerController {
 	private BeerService service;
 	
 	@GetMapping("/{beerId}")
-	public ResponseEntity<BeerDto> getBeer(@PathVariable UUID beerId) {
+	public ResponseEntity<BeerDto> getBeerById(@PathVariable UUID beerId) {
 		
 		return new ResponseEntity<>(service.getBeerById(beerId), HttpStatus.OK);
 		
 	}
 	
 	@PostMapping
-	public ResponseEntity createBeer(@RequestBody   BeerDto beer) {
+	public ResponseEntity saveNewBeer(@RequestBody   BeerDto beer) {
 		
 		System.out.println("Beer name" + beer.getBeerName());
 		
@@ -55,7 +55,7 @@ public class BeerController {
 	}
 	
 	@PutMapping("/{beerId}")
-	public ResponseEntity handleUpdate(@PathVariable UUID beerId,
+	public ResponseEntity updateBeerById(@PathVariable UUID beerId,
 			@RequestBody BeerDto beer) {
 		
 		service.updateBeer(beerId, beer);
