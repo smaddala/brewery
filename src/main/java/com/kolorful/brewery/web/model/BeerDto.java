@@ -37,7 +37,7 @@ public class BeerDto {
 	
 	@Positive
 	@NotNull
-	@Digits(integer=6, fraction=2)
+	@Digits(integer=2, fraction=2)
 	private BigDecimal price;
 	
 	private Integer quantityOnHand;

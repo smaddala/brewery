@@ -33,8 +33,12 @@ public class BeerServiceImpl implements BeerService {
 	}
 
 	@Override
-	public void updateBeer(UUID beerId, BeerDto beer) {
-		// TODO Auto-generated method stub
+	public BeerDto updateBeer(UUID beerId, BeerDto beer) {
+		return BeerDto.builder().id(UUID.randomUUID())
+				.beerName(beer.getBeerName())
+				.beerStyle(beer.getBeerStyle())
+				.build();
+		
 		
 	}
 

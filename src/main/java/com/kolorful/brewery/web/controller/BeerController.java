@@ -56,16 +56,17 @@ public class BeerController {
 		
 		val newBeer = service.saveNewBeer(beer);
 		
-		URI location = ServletUriComponentsBuilder.fromCurrentRequest()
-				.path("/{id}").buildAndExpand(newBeer.getId().toString()).toUri();
-		
-		System.out.println("beer location = " + location.toString());
-		
-		val headers = new HttpHeaders();
-		headers.add("Location", location.toString());
-		
-		
-		return new ResponseEntity(headers, HttpStatus.CREATED);
+//		URI location = ServletUriComponentsBuilder.fromCurrentRequest()
+//				.path("/{id}").buildAndExpand(newBeer.getId().toString()).toUri();
+//		
+//		System.out.println("beer location = " + location.toString());
+//		
+//		val headers = new HttpHeaders();
+//		headers.add("Location", location.toString());
+//		
+//		
+//		return new ResponseEntity(headers, HttpStatus.CREATED);
+		return new ResponseEntity(HttpStatus.CREATED);
 	}
 	
 	@PutMapping("/{beerId}")
