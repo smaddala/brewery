@@ -30,6 +30,10 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import com.kolorful.brewery.services.BeerService;
 import com.kolorful.brewery.web.model.BeerDto;
 
+import lombok.val;
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @RequestMapping("/api/v1/beer")
 @RestController
 public class BeerController {
@@ -47,16 +51,17 @@ public class BeerController {
 	@PostMapping
 	public ResponseEntity saveNewBeer(@Valid @RequestBody  BeerDto beer) {
 		
-		System.out.println("Beer name" + beer.getBeerName());
 		
-		BeerDto newBeer = service.saveNewBeer(beer);
+		log.debug("Beer name:" + beer.getBeerName());
+		
+		val newBeer = service.saveNewBeer(beer);
 		
 		URI location = ServletUriComponentsBuilder.fromCurrentRequest()
 				.path("/{id}").buildAndExpand(newBeer.getId().toString()).toUri();
 		
 		System.out.println("beer location = " + location.toString());
 		
-		HttpHeaders headers = new HttpHeaders();
+		val headers = new HttpHeaders();
 		headers.add("Location", location.toString());
 		
 		

@@ -17,7 +17,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data // Getters and setters
+@Data // Getters and setters, toString, equals, hashcode
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
