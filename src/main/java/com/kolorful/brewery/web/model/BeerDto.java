@@ -12,6 +12,8 @@ import javax.validation.constraints.PastOrPresent;
 import javax.validation.constraints.Positive;
 import javax.validation.constraints.PositiveOrZero;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -35,6 +37,7 @@ public class BeerDto {
 	@NotNull
 	private String upc;
 	
+	@JsonFormat(shape = JsonFormat.Shape.STRING)
 	@Positive
 	@NotNull
 	@Digits(integer=2, fraction=2)
@@ -42,10 +45,15 @@ public class BeerDto {
 	
 	private Integer quantityOnHand;
 	
+	@JsonFormat(pattern="yyyy-MM-dd'T'HH:mm:ssZ", shape=JsonFormat.Shape.STRING)
 	@Null
 	private OffsetDateTime createdDate; // UTC time
+	
+	@JsonFormat(pattern="yyyy-MM-dd'T'HH:mm:ssZ", shape=JsonFormat.Shape.STRING)
 	@Null
 	private OffsetDateTime lastModifiedDate; 
+	
+	
 	@Null
 	private Integer version;
 	
