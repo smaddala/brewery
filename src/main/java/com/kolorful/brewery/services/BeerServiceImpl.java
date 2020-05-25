@@ -31,6 +31,7 @@ public class BeerServiceImpl implements BeerService {
 //				.beerName("Hawards 5000")
 //				.beerStyle(BeerStyleEnum.LAGER)
 //				.build();
+		
 		return beerMapper.beerToBeerDto(
 					beerRepo.findById(beerId).orElseThrow(NotFoundException::new)
 				);
@@ -73,9 +74,16 @@ public class BeerServiceImpl implements BeerService {
 
 	@Override
 	public void deleteBeer(UUID beerId) {
-		// TODO Auto-generated method stub
-		log.debug("Inside update beer");
 		
+		log.debug("Inside update beer");
+		beerRepo.findById(beerId).orElseThrow(NotFoundException::new);
+		beerRepo.deleteById(beerId);
+		
+	}
+
+	@Override
+	public BeerDto getBeerByUpc(String upc) {
+		return beerMapper.beerToBeerDto(beerRepo.findByUpc(upc));
 	}
 	
 	

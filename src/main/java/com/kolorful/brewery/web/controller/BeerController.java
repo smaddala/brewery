@@ -78,14 +78,21 @@ public class BeerController {
 		return new ResponseEntity(HttpStatus.NO_CONTENT);
 	}
 	
-//	@DeleteMapping("/{beerId}")
-//	@ResponseStatus(HttpStatus.NO_CONTENT)
-//	public void deleteBeer(@PathVariable UUID beerId) {
-//		
-//		service.deleteBeer(beerId);
-//		
-//		
-//	}
+	@DeleteMapping("/{beerId}")
+	@ResponseStatus(HttpStatus.NO_CONTENT)
+	public void deleteBeer(@PathVariable UUID beerId) {
+		
+		service.deleteBeer(beerId);
+		
+		
+	}
+	
+	@GetMapping("upc/{upc}")
+	public ResponseEntity<BeerDto> getBeerByUpc(@PathVariable String upc) {
+		
+		return new ResponseEntity<>(service.getBeerByUpc(upc), HttpStatus.OK);
+		
+	}
 	
 	 
 

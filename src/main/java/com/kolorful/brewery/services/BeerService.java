@@ -14,4 +14,6 @@ public interface BeerService {
 
 	public void deleteBeer(UUID beerId);
 
+	public BeerDto getBeerByUpc(String upc);
+
 }
