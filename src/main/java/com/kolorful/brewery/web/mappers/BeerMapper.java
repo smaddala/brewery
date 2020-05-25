@@ -10,7 +10,7 @@ public interface BeerMapper {
 	
 	public BeerDto beerToBeerDto(Beer beer);
 	
-	public Beer beerToBeerDto(BeerDto beerDto);
+	public Beer beerDtoToBeer(BeerDto beerDto);
 	
 
 }
